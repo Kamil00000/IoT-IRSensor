@@ -11,10 +11,15 @@ kanapie).
 ## 🛠️ Technologie
 
 • Odbiornik podczerwieni VS1838B (IR) – podłączony do pierwszego komputera przez Arduino Uno.
+
 • Płytka stykowa
+
 • Pilot IR – uniwersalny pilot od tv SONY (RM-ED062) do wysyłania komend.
+
 • Komputer 1 (klient, np. laptop) – odbiera sygnały IR i przesyła je do serwera.
+
 • Komputer 2 (serwer, Spring Boot) – obsługuje żądania i umożliwia zdalne sterowanie klientem przez internet.
+
 • Komunikacja internetowa – komputer klient wysyła żądania do serwera przez REST API
 
 ## 🔄 Scenariusz działania 
