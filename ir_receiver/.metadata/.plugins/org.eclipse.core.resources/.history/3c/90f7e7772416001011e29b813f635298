@@ -1,0 +1,28 @@
+package com.kksk.ir_receiver.service;
+
+import org.springframework.stereotype.Service;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+@Service
+public class CommandService {
+
+    // Mapa klient → ostatnia komenda
+    private final Map<String, String> clientCommands = new ConcurrentHashMap<>();
+
+    // Dodaje komendę do mapy (nadpisuje starą komendę)
+    public void addCommand(String clientId, String command) {
+        clientCommands.put(clientId, command); // Nadpisuje poprzednią komendę
+    }
+
+    // Pobiera komendę dla klienta (zwraca "none" jeśli brak komendy)
+    public String getNextCommand(String clientId) {
+        return clientCommands.getOrDefault(clientId, "none");
+    }
+
+    // Opcjonalnie: Możesz dodać metodę do usunięcia komendy po jej wykonaniu
+    public void removeCommand(String clientId) {
+        clientCommands.remove(clientId);
+    }
+}
